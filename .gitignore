@@ -6,3 +6,4 @@
 .pub/
 
 build/
+example/android/gradle/
