@@ -22,5 +22,3 @@ flutter:
       android:
         package: com.nyartech.ringtone_plugin
         pluginClass: RingtonePlugin
-      ios:
-        pluginClass: RingtonePlugin
