@@ -47,4 +47,15 @@ public class RingtonePlugin implements FlutterPlugin, MethodCallHandler {
   public void onDetachedFromEngine(@NonNull FlutterPluginBinding binding) {
     channel.setMethodCallHandler(null);
   }
+
+  @SuppressWarnings("deprecation")
+  public static void registerWith(io.flutter.plugin.common.PluginRegistry.Registrar registrar) {
+    RingtonePlugin instance = new RingtonePlugin();
+    
+    instance.context = registrar.context();
+    instance.channel = new MethodChannel(registrar.messenger(), "ringtone_plugin");
+    instance.channel.setMethodCallHandler(instance);
+
+    instance.intent = new Intent(instance.context, RingtonePlayingService.class);
+  }
 }
